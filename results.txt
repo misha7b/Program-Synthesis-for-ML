@@ -1,0 +1,16 @@
+(
+(define-fun mult_mxint_mant ((m1 (_ BitVec 4)) (e1 (_ BitVec 4)) (m2 (_ BitVec 4)) (e2 (_ BitVec 4))) (_ BitVec 4) (let ((_let_1 ((_ sign_extend 4) m2))) (let ((_let_2 (bvmul ((_ sign_extend 4) m1) _let_1))) ((_ extract 3 0) (ite (bvslt _let_1 #b00000000) (bvashr _let_2 #b00000011) (bvashr _let_2 #b00000010))))))
+)
+
+--- Mantissa-Level Performance Metrics ---
+Total Test Cases:         1000
+Max Mantissa Error:       12
+Mean Mantissa Error:      2.3610
+Median Mantissa Error:    0.0000
+Percentage Exact Matches: 61.10
+-----------------------------------
+
+--- Dequantized float performance ---
+Percentage within 0.1: 62.00%
+Mean absolute error: 2.5021
+Median absolute error: 0.0000
